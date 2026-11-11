@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff4db" />
+    <title>Baby Train</title>
+    <link rel="stylesheet" href="/babytrain/styles.css" />
+    <script src="/babytrain/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="site-header">
+        <a class="wordmark" href="/babytrain/" aria-label="Baby Train home"
+          >Baby Train</a
+        >
+      </header>
+
+      <section
+        id="locked-panel"
+        class="access-panel"
+        hidden
+        aria-labelledby="access-title"
+      >
+        <h1 id="access-title">Welcome to Baby Train!</h1>
+        <p>Enter the password shared by your meal train organizer.</p>
+        <p id="access-message" class="form-message" role="status"></p>
+        <form id="owner-login" class="owner-login">
+          <label for="owner-key">Password</label>
+          <div class="input-row">
+            <input
+              id="owner-key"
+              name="key"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Password"
+              required
+            />
+            <button class="button button-dark" type="submit">Sign in</button>
+          </div>
+        </form>
+      </section>
+
+      <div id="app-content" hidden>
+        <section class="train-banner" aria-labelledby="train-title">
+          <div>
+            <h1 id="train-title">Baby Train</h1>
+            <p>Pick a night to bring dinner and leave a little love.</p>
+          </div>
+          <span class="train-art" aria-hidden="true">🚂</span>
+        </section>
+        <section aria-labelledby="calendar-title">
+          <div class="section-heading calendar-heading">
+            <div><h2 id="calendar-title" class="page-title">Dinner calendar</h2></div>
+            <div class="calendar-controls">
+              <button
+                id="previous-days"
+                class="arrow-button"
+                type="button"
+                aria-label="Previous days"
+                title="Previous days"
+              >
+                ←
+              </button>
+              <button
+                id="next-days"
+                class="arrow-button"
+                type="button"
+                aria-label="Next days"
+                title="Next days"
+              >
+                →
+              </button>
+            </div>
+          </div>
+          <div
+            id="calendar"
+            class="calendar"
+            aria-label="Dinner dates"
+            tabindex="0"
+          ></div>
+          <p
+            id="meal-message"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </section>
+
+        <section class="menu-board" aria-labelledby="menu-title">
+          <h2 id="menu-title">What’s cooking?</h2>
+          <p id="empty-menu">Dishes will show up here as friends sign up.</p>
+          <ul id="dish-list" aria-live="polite"></ul>
+        </section>
+
+        <section class="comments" aria-labelledby="comments-title">
+          <h2 id="comments-title">Sticky notes</h2>
+          <div class="note-board">
+            <button id="add-note" class="new-note" type="button">
+              <span aria-hidden="true">+</span>
+              Leave a note
+            </button>
+            <ol id="comment-list" class="comment-list" aria-live="polite"></ol>
+          </div>
+        </section>
+
+        <dialog id="note-dialog" class="note-dialog" aria-labelledby="note-title">
+          <form id="comment-form" class="comment-form">
+            <h2 id="note-title">Leave a sticky note</h2>
+            <label for="comment-text">Your note</label>
+            <textarea id="comment-text" maxlength="1000" rows="4" required autofocus></textarea>
+            <label for="comment-name">Your name (optional)</label>
+            <input id="comment-name" maxlength="60" autocomplete="given-name" />
+            <p id="comment-message" class="form-message" role="status"></p>
+            <div class="form-footer">
+              <button id="cancel-note" class="text-button" type="button">Cancel</button>
+              <button class="button button-dark" type="submit">Stick it up</button>
+            </div>
+          </form>
+        </dialog>
+      </div>
+    </main>
+  </body>
+</html>

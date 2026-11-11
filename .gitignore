@@ -1,0 +1,12 @@
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+.venv/
+.venv-workers/
+.wrangler/
+node_modules/
+python_modules/
+__pycache__/
+*.pyc
+wrangler.production.jsonc
